@@ -1,0 +1,23 @@
+{
+  "name": "video_system_data_server",
+  "version": "1.0.0",
+  "description": "share data, collections, statues reports etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishavbhowmik/video_system_data_server.git"
+  },
+  "author": "Rishav Bhowmik",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/rishavbhowmik/video_system_data_server/issues"
+  },
+  "homepage": "https://github.com/rishavbhowmik/video_system_data_server#readme",
+  "dependencies": {
+    "fastify": "^3.10.1",
+    "fastify-cors": "^5.1.0"
+  }
+}
