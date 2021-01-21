@@ -3,9 +3,10 @@ const mongodb_config = require('../manifest/mongodb_config.json')
 const os = require('os')
 
 class DB{
+    /**@returns {Promise<mongodb.Db>} */
     static async mongodb_video_system(){
         if(DB.mongodb_con) return DB.mongodb_con.db(mongodb_config.video_system.name)
-        DB.mongodb_con = await DB.mongodb_client.connect()
+        DB.mongodb_con = (await DB.mongodb_client.connect())
         return DB.mongodb_con.db(mongodb_config.video_system.name)
     }
 }

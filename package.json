@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/rishavbhowmik/video_system_data_server#readme",
   "dependencies": {
+    "cassandra-driver": "^4.6.1",
     "fastify": "^3.10.1",
-    "fastify-cors": "^5.1.0"
+    "fastify-cors": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3"
   }
 }
