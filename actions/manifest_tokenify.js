@@ -18,6 +18,7 @@ function mk_public_token(object_id){
     }]} chunk_list
  */
 function chunk_list_tokenify(chunk_list) {
+    if(!chunk_list) return null
     return chunk_list.map(c=>{
         c["object_token"] = mk_public_token(c.object_id)
         return c
