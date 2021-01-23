@@ -1,5 +1,6 @@
 const { VideoData } = require("../actions/video_data")
 const { User } = require("../actions/user")
+const { manifest_tokenify } = require("../actions/manifest_tokenify")
 
 module.exports = [
     {
@@ -33,16 +34,17 @@ module.exports = [
                 type: 'object',
                 required:   ['video_id'],
                 properties: {
-                    video_id:  {type:'string'}
+                    video_id:   {type:'string'},
+                    tokenify:   {type:'boolean'}
                 }
             }
         },
         handler: async (request, reply) => {
             const body = request.body
             try{
-                const manifest = VideoData.get_video_manifest(body.video_id)
+                const manifest = await VideoData.get_video_manifest(body.video_id)
                 if(manifest === null) throw Error("Invalid Video ID")
-                return manifest
+                return body.tokenify? manifest_tokenify(manifest) : manifest
             }catch(e){
                 reply.code(301)
                 return {error:e.message, result:null}

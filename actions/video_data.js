@@ -26,7 +26,55 @@ class VideoData{
         })
     }
     /**
-     * @param {string} video_id 
+     * @param {string} video_id
+     * @returns {Promise<{
+            _id: mongodb.ObjectId,
+            title: string,
+            upload_time: number,
+            upload_id: mongodb.ObjectId,
+            user_id: string,
+            stream_manifest: {
+                '144': {
+                    user_id: string,
+                    video_id: string,
+                    duration: number,
+                    chunks: [{
+                        "object_id": string,
+                        "height": 144,
+                        "width": number,
+                        "start_time": number,
+                        "end_time": number,
+                        "byte_length": number
+                    }]
+                },
+                '360': {
+                    user_id: string,
+                    video_id: string,
+                    duration: number,
+                    chunks: [{
+                        "object_id": string,
+                        "height": 144,
+                        "width": number,
+                        "start_time": number,
+                        "end_time": number,
+                        "byte_length": number
+                    }]
+                },
+                '720': {
+                    user_id: string,
+                    video_id: string,
+                    duration: number,
+                    chunks: [{
+                        "object_id": string,
+                        "height": 144,
+                        "width": number,
+                        "start_time": number,
+                        "end_time": number,
+                        "byte_length": number
+                    }]
+                }
+            }
+        }>}
      */
     static async get_video_manifest(video_id){
         const videos_collection = (await DB.mongodb_video_system()).collection('videos')
@@ -47,6 +95,6 @@ VideoData.list_user_videos('5fd6424181605b4294e1aa71')
 */
 /*
 VideoData.get_video_manifest('600932b1e7984934f8bd01e6')
-.then(r=>console.table(r))
+.then(r=>console.log(r))
 .catch(e=>console.log(e))
 */
