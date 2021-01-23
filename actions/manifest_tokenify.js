@@ -5,7 +5,7 @@ const {OBJECT_TOKEN_KEY} = require('../manifest/private.json')
  * @param {string} key 
  */
 function mk_public_token(object_id){
-    return JWT.sign({object_id}, OBJECT_TOKEN_KEY, {expiresIn: '1h'})
+    return JWT.sign({object_id, access:'*', mime_type:'video/webm'}, OBJECT_TOKEN_KEY, {expiresIn: '1h'})
 }
 /**
  * @param {[{
